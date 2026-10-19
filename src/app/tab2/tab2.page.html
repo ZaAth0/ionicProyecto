@@ -1,0 +1,48 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ilustraciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ilustraciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="12" *ngIf="fotos.length === 0">
+        <p>Todavía no hay fotos</p>
+      </ion-col>
+
+      <ion-col size="6" size-md="3" *ngFor="let foto of fotos">
+        <ion-card>
+          <ion-img [src]="foto.url" [alt]="foto.titulo"></ion-img>
+
+          <ion-card-header>
+            <ion-card-title>{{ foto.titulo }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ foto.descripcion }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="success" (click)="agregarFoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
